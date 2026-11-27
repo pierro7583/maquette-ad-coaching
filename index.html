@@ -575,8 +575,12 @@
   [id] { scroll-margin-top:calc(var(--nav-h) + 1rem); }
 
   @media (max-width:47.99rem) {
-    .band { padding:3.1rem 0; }
-    .page.on > *:last-child { padding-bottom:3.8rem; }
+    .band { padding:2.4rem 0; }
+    .page.on > *:last-child { padding-bottom:2.4rem; }
+    .band.band-cta { padding-top:1.7rem; padding-bottom:1.9rem; }
+    .page.on > .band.band-cta:last-child { padding-bottom:1.9rem; }
+    .band:not(.ice):not(.mint):not(.sand):not(.blush):not(.peach) + .band.band-cta { padding-top:.6rem; }
+    .duo { gap:1.5rem 3rem; }
     .lede { font-size:1rem; }
     .actions { margin-top:1.3rem; }
     .head + .topics, .head + .triad, .head + .formules, .head + .types { margin-top:1.3rem; }
@@ -810,7 +814,23 @@
   .avis-aut b { font-family:var(--display); font-weight:700; font-size:.92rem; color:var(--ink); }
   .avis-aut span { font-size:.8rem; color:var(--ink-faint); }
   .avis-foot { margin-top:1.6rem; display:flex; align-items:center; gap:.9rem 1.4rem; flex-wrap:wrap; }
-  .avis-foot p { margin:0; font-size:.92rem; color:var(--ink-faint); }
+  .avis-badge { display:inline-flex; align-items:center; gap:.55rem; margin:0; font-size:.94rem;
+                color:var(--ink); font-weight:500; }
+  .avis-badge svg { width:20px; height:20px; flex:none; }
+  .avis-badge .stars { color:#B97300; letter-spacing:.06em; }
+
+  .topics.compact { margin-top:1.5rem; gap:0 2.2rem; }
+  .topics.compact .topic { padding:.85rem 0 .95rem; }
+  @media (max-width:47.99rem) {
+    .topics.compact { margin-top:1.1rem; }
+    .topics.compact .topic { padding:.68rem 0 .78rem; }
+    .topics.compact .topic h3 { margin-bottom:.25rem; }
+  }
+  .band:not(.ice):not(.mint):not(.sand):not(.blush):not(.peach) + .band.band-cta { padding-top:1.2rem; }
+  .page.on > .band.band-cta:last-child { padding-bottom:3.8rem; }
+  @media (max-width:47.99rem) {
+    .page.on > .band.band-cta:last-child { padding-bottom:1.9rem; }
+  }
 
   .etapes-liste { list-style:none; padding:0; margin:1.4rem 0 0; display:grid; gap:.9rem; }
   .etapes-liste li { display:grid; grid-template-columns:2.2rem minmax(0,1fr); gap:.75rem; align-items:baseline;
@@ -873,7 +893,7 @@
 
 
 <div class="proofbar">
-  <div class="shell"><strong>Maquette de travail</strong> — version du 24 novembre, avec vos derniers ajustements. Rien n'est en ligne. <a class="proof-q" href="#questions" data-go="questions">Suivi des ajustements →</a></div>
+  <div class="shell"><strong>Maquette de travail</strong> — version du 27 novembre, avec vos dernières retouches. Rien n'est en ligne. <a class="proof-q" href="#questions" data-go="questions">Suivi des ajustements →</a></div>
 </div>
 
 <header class="nav">
@@ -1120,7 +1140,7 @@
   <section class="band sand" id="avis-clients">
     <div class="shell">
       <div class="head">
-        <p class="eyebrow" data-fade>Avis Google · 5,0 / 5</p>
+        <p class="eyebrow" data-fade>Avis Google</p>
         <h2 data-split>Ils m'ont fait confiance</h2>
       </div>
       <div class="avis-grid" data-stagger>
@@ -1142,19 +1162,28 @@
       </div>
       <div class="avis-foot" data-fade>
         <a class="btn btn-2" href="https://g.co/kgs/Q9zMFf9" target="_blank" rel="noopener">Voir tous les avis sur Google →</a>
-        <p>5,0 / 5 sur 17 avis clients Google</p>
+        <p class="avis-badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+          </svg>
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <span>5/5 · 17 avis Google</span>
+        </p>
       </div>
     </div>
   </section>
 
-  <section class="band">
+  <section class="band band-cta">
     <div class="shell">
       <div class="cta-panel">
         <div>
           <p class="eyebrow" style="color:var(--salmon-ink)" data-fade>Premier rendez-vous</p>
           <h2 data-split>Et si on en <span class="mk">parlait</span>&nbsp;?</h2>
-          <p class="lede" data-fade>Vous avez une situation en tête et vous vous demandez si le coaching
-            pourrait vous correspondre&nbsp;? Prenons un premier rendez-vous pour en discuter.</p>
+          <p class="lede" data-fade>Vous avez une situation en tête, des questions, ou vous vous demandez si le coaching est fait pour vous&nbsp;?</p>
+          <p class="lede" style="margin-top:.7rem" data-fade>Prenons 45 minutes pour faire le point, clarifier votre situation et répondre à toutes vos questions.</p>
         </div>
         <div data-fade>
           <div class="actions"><a class="btn btn-1" href="#contact" data-rdv="decouverte">Réserver un rendez-vous découverte</a></div>
@@ -1332,14 +1361,14 @@
     </div>
   </section>
 
-  <section class="band">
+  <section class="band band-cta">
     <div class="shell">
       <div class="cta-panel">
         <div>
           <p class="eyebrow" style="color:var(--salmon-ink)" data-fade>Premier rendez-vous</p>
           <h2 data-split>Et si on en <span class="mk">parlait</span>&nbsp;?</h2>
-          <p class="lede" data-fade>45 minutes pour parler de votre situation et voir si cet
-            accompagnement vous correspond. Gratuit, sans engagement.</p>
+          <p class="lede" data-fade>45 minutes pour échanger, clarifier votre situation, répondre à vos
+            questions et voir si le coaching est adapté à vos besoins. Gratuit et sans engagement.</p>
         </div>
         <div data-fade>
           <div class="actions"><a class="btn btn-1" href="#contact" data-rdv="decouverte">Réserver un rendez-vous découverte</a></div>
@@ -1388,7 +1417,7 @@
         <p class="eyebrow" style="color:var(--deep)" data-fade>Les situations accompagnées</p>
         <h2 data-split>Ce sur quoi nous travaillons</h2>
       </div>
-      <div class="topics" data-stagger>
+      <div class="topics compact" data-stagger>
         <div class="topic"><h3>Communication avec les équipes</h3><p>Se faire comprendre, faire passer un message difficile, rétablir un dialogue.</p></div>
         <div class="topic"><h3>Délégation</h3><p>Des responsabilités difficiles à confier, et ce qui empêche de lâcher prise.</p></div>
         <div class="topic"><h3>Relations professionnelles</h3><p>Tensions avec un collaborateur, un pair, une hiérarchie.</p></div>
@@ -1406,7 +1435,7 @@
       <div class="split2">
         <div>
           <p class="eyebrow" data-fade>Mon expérience</p>
-          <h2 data-split>Je connais ces environnements de l'intérieur</h2>
+          <h2 data-split>15 ans sur le terrain, avant le coaching</h2>
         </div>
         <div class="txt" data-stagger>
           <p>Avant le coaching, j'ai travaillé pendant 15 ans dans l'hôtellerie-restauration haut de
@@ -1593,7 +1622,7 @@
     <div class="shell">
       <div class="head">
         <p class="eyebrow" style="color:var(--deep)" data-fade>Ce que vous en retirez</p>
-        <h2 data-split>Ce que votre bilan va vous permettre de clarifier</h2>
+        <h2 data-split>Ce que vous allez clarifier</h2>
       </div>
       <div class="topics" data-stagger>
         <div class="topic"><h3>Vos compétences</h3><p>Reconnaître tout ce que vous savez faire.</p></div>
@@ -1618,12 +1647,44 @@
           <p class="duree">18 heures · 6 séances</p>
           <p class="utile">Pour faire le point sur votre parcours et approfondir un projet
             professionnel déjà relativement ciblé.</p>
+          <div class="act">
+            <button class="btn btn-2" type="button" data-plus aria-expanded="false" aria-controls="plan-bilan-essentiel" data-libelle="Voir le détail">Voir le détail</button>
+          </div>
+          <div class="detail" id="plan-bilan-essentiel" hidden>
+            <p class="lbl" style="margin-top:0">Ce que comprend le Bilan Essentiel</p>
+            <ul class="list">
+              <li>18 heures d'accompagnement personnalisé réparties sur 6 séances</li>
+              <li>Exploration de vos compétences et de vos motivations</li>
+              <li>Étude de vos pistes professionnelles</li>
+              <li>Construction d'un plan d'action concret</li>
+              <li>Document de synthèse personnel et confidentiel + dossier bilan</li>
+              <li>Entretien de suivi à six mois inclus</li>
+            </ul>
+            <p class="lbl">Modalités</p>
+            <p>Au cabinet à Hyères ou en visioconférence, selon un calendrier défini ensemble. Contrat et échéancier proposés après le rendez-vous découverte gratuit (paiement échelonné possible jusqu'à 8 fois).</p>
+          </div>
         </article>
         <article class="fcard">
           <div class="haut"><h3>Bilan Complet</h3><p class="prix">1 380&nbsp;€</p></div>
           <p class="duree">24 heures · 10 séances</p>
           <p class="utile">Pour explorer plusieurs possibilités et construire un projet professionnel
             qui vous correspond.</p>
+          <div class="act">
+            <button class="btn btn-2" type="button" data-plus aria-expanded="false" aria-controls="plan-bilan-complet" data-libelle="Voir le détail">Voir le détail</button>
+          </div>
+          <div class="detail" id="plan-bilan-complet" hidden>
+            <p class="lbl" style="margin-top:0">Ce que comprend le Bilan Complet</p>
+            <ul class="list">
+              <li>24 heures d'accompagnement personnalisé réparties sur 10 séances</li>
+              <li>Exploration approfondie de vos compétences et de vos motivations</li>
+              <li>Étude de plusieurs pistes professionnelles pour clarifier votre direction</li>
+              <li>Construction d'un plan d'action concret</li>
+              <li>Document de synthèse personnel et confidentiel + dossier bilan</li>
+              <li>Entretien de suivi à six mois inclus</li>
+            </ul>
+            <p class="lbl">Modalités</p>
+            <p>Au cabinet à Hyères ou en visioconférence, selon un calendrier défini ensemble. Contrat et échéancier proposés après le rendez-vous découverte gratuit (paiement échelonné possible jusqu'à 8 fois).</p>
+          </div>
         </article>
       </div>
       <p class="note-plus" data-fade><strong style="color:var(--ink);font-weight:500">Nous choisissons ensemble la formule la plus adaptée à votre situation lors du rendez-vous découverte gratuit.</strong>
@@ -1743,8 +1804,7 @@
       <div class="formules deux" data-stagger>
         <article class="fcard">
           <div class="haut"><h3>BOOST</h3><p class="prix">690&nbsp;€</p></div>
-          <p class="duree">3 mois · 6 séances de 1 h avec le jeune + 1 bilan parental inclus, en supplément des 6 séances</p>
-          <p class="utile">Pour accompagner une situation précise et avancer concrètement sur trois mois.</p>
+          <p class="duree">3 mois · 6 séances de 1 h avec le jeune + 1 bilan parental inclus</p>
           <p class="paie">Payable en 3 fois (3 × 230&nbsp;€).</p>
           <div class="act">
             <button class="btn btn-2" type="button" data-plus aria-expanded="false" aria-controls="plan-boost" data-libelle="Découvrir BOOST">Découvrir BOOST</button>
@@ -1763,8 +1823,7 @@
         </article>
         <article class="fcard">
           <div class="haut"><h3>ÉLAN</h3><p class="prix">1 200&nbsp;€</p></div>
-          <p class="duree">6 mois · 12 séances de 1 h avec le jeune + 2 bilans parentaux inclus, en supplément des 12 séances</p>
-          <p class="utile">Pour les situations qui demandent du temps et un suivi régulier sur six mois.</p>
+          <p class="duree">6 mois · 12 séances de 1 h avec le jeune + 2 bilans parentaux inclus</p>
           <p class="paie">Payable en 6 fois (6 × 200&nbsp;€).</p>
           <div class="act">
             <button class="btn btn-2" type="button" data-plus aria-expanded="false" aria-controls="plan-elan" data-libelle="Découvrir ÉLAN">Découvrir ÉLAN</button>
@@ -1782,8 +1841,9 @@
           </div>
         </article>
       </div>
+      <p class="note-plus" data-fade>Les bilans parentaux sont inclus dans les tarifs, mais en supplément des séances avec le jeune.</p>
       <div class="jeunes-cta" data-fade>
-        <p>Échangeons sur la situation de votre enfant pour choisir ensemble l'accompagnement le plus adapté.</p>
+        <p>Un premier échange pour faire connaissance avec votre enfant, comprendre sa situation, répondre à vos questions et voir quel accompagnement serait adapté.</p>
         <div class="actions">
           <a class="btn btn-1" href="#contact" data-rdv="decouverte">Prendre un rendez-vous gratuit</a>
         </div>
@@ -2315,9 +2375,9 @@
           <span class="n">Appliqué · Avis Google</span>
           <h2>Les 3 avis Google authentiques (Accueil)</h2>
           <p class="q-lbl">En place</p>
-          <p class="faire">Trois extraits fidèles relevés sur votre fiche d'établissement Google (Sophie Van leemputten, Michaël Beranger, Laura Grao — 5,0 / 5 sur 17 avis), avec lien direct vers la fiche Google.</p>
-          <p class="q-lbl">À confirmer</p>
-          <p>Dites-nous si vous souhaitez mettre en avant d'autres avis parmi les 17 de votre fiche, et s'il manquait une ligne après «&nbsp;Sous les trois avis&nbsp;».</p>
+          <p class="faire">Trois extraits fidèles relevés sur votre fiche d'établissement Google (Sophie Van leemputten, Michaël Beranger, Laura Grao), badge avec logo Google «&nbsp;★★★★★ 5/5 · 17 avis Google&nbsp;» et lien direct vers la fiche Google.</p>
+          <p class="q-lbl">Pour le site final</p>
+          <p>L'actualisation automatique de la note et du nombre d'avis Google sera branchée côté serveur (API Google Places mise en cache) lors du passage sur le vrai site.</p>
         </article>
         <article class="q">
           <span class="n">Appliqué · Photos</span>
